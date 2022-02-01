@@ -10,10 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.MainResponse;
+
+import com.example.weathervip1.Prefs;
 import com.example.weathervip1.R;
 import com.example.weathervip1.base.BaseFragment;
 import com.example.weathervip1.common.Resource;
+import com.example.weathervip1.data.models.MainResponse;
 import com.example.weathervip1.databinding.FragmentWeathertvBinding;
 
 public class WeathertvFragment extends BaseFragment<FragmentWeathertvBinding> {
@@ -62,8 +64,13 @@ public class WeathertvFragment extends BaseFragment<FragmentWeathertvBinding> {
     @Override
     protected void callRequests() {
 
-        viewModel.getWeather("Bishkek");
+        viewModel.getWeather(getCity());
 
+    }
+
+    private String getCity(){
+        Prefs prefs = new Prefs(requireActivity());
+        return prefs.getCity();
     }
 
     @Override

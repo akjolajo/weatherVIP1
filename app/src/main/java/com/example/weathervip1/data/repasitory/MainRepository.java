@@ -2,9 +2,12 @@ package com.example.weathervip1.data.repasitory;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.MainResponse;
+
 import com.example.weathervip1.R;
 import com.example.weathervip1.common.Resource;
+import com.example.weathervip1.data.models.Main;
+
+import com.example.weathervip1.data.models.MainResponse;
 import com.example.weathervip1.data.remote.WeatherApi;
 
 import org.checkerframework.checker.units.qual.C;
@@ -30,7 +33,7 @@ public class MainRepository {
 
         MutableLiveData<Resource<MainResponse>> livedata = new MutableLiveData<>();
         livedata.setValue(Resource.loading());
-        api.getWeather("Bishkek", "bff2008a7f2e0a8857d1b0fd6a47a5f9", "metric").enqueue(new Callback<MainResponse>() {
+        api.getWeather(city, "bff2008a7f2e0a8857d1b0fd6a47a5f9", "metric").enqueue(new Callback<MainResponse>() {
             @Override
             public void onResponse(Call<MainResponse> call, Response<MainResponse> response) {
                 if (response.isSuccessful() && response.body() != null){

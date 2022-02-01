@@ -1,6 +1,8 @@
 package com.example.weathervip1.data.remote;
 
-import com.example.MainResponse;
+
+
+import com.example.weathervip1.data.models.MainResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

@@ -4,8 +4,9 @@ package com.example.weathervip1.ui;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.MainResponse;
+
 import com.example.weathervip1.common.Resource;
+import com.example.weathervip1.data.models.MainResponse;
 import com.example.weathervip1.data.repasitory.MainRepository;
 
 import javax.inject.Inject;
@@ -25,7 +26,7 @@ public class WeatherViewModel extends ViewModel {
     public LiveData<Resource<MainResponse>> weatherLiveData;
 
     public void getWeather(String city){
-        weatherLiveData = repository.getWeather("Bishkek");
+        weatherLiveData = repository.getWeather(city);
     }
 
 }
